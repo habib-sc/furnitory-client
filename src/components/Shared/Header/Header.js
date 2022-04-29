@@ -24,7 +24,7 @@ const Header = () => {
 
     return (
         <header className="text-gray-600 body-font bg-gray-100">
-            <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row">
+            <div className="container mx-auto flex flex-wrap py-5 flex-col md:flex-row">
                 <div className='flex justify-between items-center'>
                     <button onClick={ () => {setToggleMenu(!toggleMenu)}} className='md:hidden'>
                         |||
