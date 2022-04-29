@@ -6,7 +6,7 @@ const Statistic = () => {
         <section className="text-gray-600 body-font">
             <div className="container px-5 py-24 mx-auto">
                 <div className="flex flex-col text-center w-full mb-20">
-                <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">We Are Offering The Best Furnitures Since 1990</h1>
+                <h1 className="sm:text-3xl md:text-5xl font-bold title-font mb-4 text-gray-900">Our Achievements</h1>
                 <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Furnitory is considered to be the Game Changer in furniture industry. Carefully-chosen raw material, environment-friendly business practice and customer-centric approach is what made Furnitory. Now Furnitory a beloved brand at home and abroad.</p>
                 </div>
                 <div className="flex flex-wrap -m-4 text-center">
