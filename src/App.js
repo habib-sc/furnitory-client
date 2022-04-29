@@ -6,6 +6,7 @@ import Inventory from './components/Pages/Inventory/Inventory';
 import Login from './components/Pages/Login/Login';
 import MyItems from './components/Pages/MyItems/MyItems';
 import Register from './components/Pages/Register/Register';
+import Footer from './components/Shared/Footer/Footer';
 import Header from './components/Shared/Header/Header';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
