@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Item = (props) => {
     // Destructuring data 
-    const { id, name, img, text, price, qty, supplierName } = props.item;
+    const { _id, name, img, text, price, qty, supplierName } = props.item;
 
     // Navigate hook
     const navigate = useNavigate();
@@ -21,7 +21,7 @@ const Item = (props) => {
                     </div>
                     <h3 className="text-slate-700 border-b py-1">Supplier Name: {supplierName}</h3>
                     <p className="mb-4 border-b py-1">{text}</p>
-                    <button onClick={ () => navigate(`/inventory/${id}`)} className='bg-blue-400 px-2 py-1 rounded text-white'>Update</button>
+                    <button onClick={ () => navigate(`/inventory/${_id}`)} className='bg-orange-500 px-2 py-1 rounded text-white'>Manage</button>
                 </div>
             </div>
         </div>

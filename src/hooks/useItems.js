@@ -5,7 +5,7 @@ const useItems = () => {
     const [items, setItems] = useState([]);
     useEffect( () => {
         ( async () => {
-            const { data } = await axios.get('items.json');
+            const { data } = await axios.get('http://localhost:5000/items');
             setItems(data);
         })();
     } , []);
