@@ -3,7 +3,6 @@ import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 
 const Header = () => {
     const [toggleMenu, setToggleMenu] = useState(false);
-    console.log(toggleMenu);
 
     function MyLink({ children, to, ...props }: LinkProps) {
         let resolved = useResolvedPath(to);

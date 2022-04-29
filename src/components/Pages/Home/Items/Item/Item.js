@@ -2,7 +2,6 @@ import React from 'react';
 
 const Item = (props) => {
     const { id, name, img, text, price, qty, supplierName } = props.item;
-    console.log(name, props);
     return (  
         <div className="p-4 border rounded-lg shadow-lg">
             <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
