@@ -1,0 +1,75 @@
+[
+    {
+      "id": "1",
+      "name": "Arm Chair Bubble Grey",
+      "text": "A modern and simple Arm Chair that everyone loves.",
+      "img": "https://i.ibb.co/MVrmMLf/Arm-Chair-Bubble-Grey.jpg",
+      "price": 119,
+      "qty": 0,
+      "supplierName": "Mr. Kabir Khan"
+    },
+    {
+      "id": "2",
+      "name": "Black Square Table Unique",
+      "text": "A modern and simple square tabel that everyone loves.",
+      "img": "https://i.ibb.co/G3662T9/Black-Square-Table-Unique.jpg",
+      "price": 209,
+      "qty": 0,
+      "supplierName": "Arif Khan"
+    },
+    {
+      "id": "3",
+      "name": "Classic Single Chair",
+      "text": "A modern and simple Single Chair that everyone loves.",
+      "img": "https://i.ibb.co/GPGPKXq/Classic-Single-Chair.jpg",
+      "price": 149,
+      "qty": 0,
+      "supplierName": "Alom Shikder"
+    },
+    {
+      "id": "4",
+      "name": "Full Glass Cabinet",
+      "text": "A modern and simple Glass Cabinet that everyone loves.",
+      "img": "https://i.ibb.co/K2Ypt6n/Full-Glass-Cabinet.jpg",
+      "price": 749,
+      "qty": 0,
+      "supplierName": "Antar Mia"
+    },
+    {
+      "id": "5",
+      "name": "King Size Minimalist Bed Grey",
+      "text": "A modern and simple King Size Minimalist Bed that everyone loves.",
+      "img": "https://i.ibb.co/q9ThxvL/King-Size-Minimalist-Bed-Grey.jpg",
+      "price": 799,
+      "qty": 0,
+      "supplierName": "Kamal Uddin"
+    },
+    {
+      "id": "6",
+      "name": "Modern Dining Chair Grey",
+      "text": "A modern and simple Dining Chair that everyone loves.",
+      "img": "https://i.ibb.co/5YNv0yd/Modern-Dining-Chair-Grey.jpg",
+      "price": 45,
+      "qty": 0,
+      "supplierName": "Samiul Islam"
+    },
+    {
+      "id": "7",
+      "name": "Rope Rattan Chair Classic",
+      "text": "A modern and simple Rope Rattan Chair that everyone loves.",
+      "img": "https://i.ibb.co/4PYVZG2/Rope-Rattan-Chair-Classic.jpg",
+      "price": 199,
+      "qty": 0,
+      "supplierName": "Ripon Sardar"
+    },
+    {
+      "id": "8",
+      "name": "White Grey Minimalist Medium Cabinet",
+      "text": "A modern and simple Minimalist Medium Cabinet that everyone loves.",
+      "img": "https://i.ibb.co/XbxBs0s/White-grey-minimalist-medium-cabinet.jpg",
+      "price": 349,
+      "qty": 0,
+      "supplierName": "Faruk Ahmed"
+    }
+  ]
+  
