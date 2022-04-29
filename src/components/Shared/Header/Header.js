@@ -38,7 +38,7 @@ const Header = () => {
                     <MyLink to='/' className="mr-5 hover:text-gray-900">Home</MyLink>
                     <MyLink to='/blogs' className="mr-5 hover:text-gray-900">Blogs</MyLink>
                     <MyLink to='/inventory' className="mr-5 hover:text-gray-900">Manage Inventory</MyLink>
-                    <button className="inline-flex items-center bg-blue-400 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">Login
+                    <button className="inline-flex items-center bg-orange-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-white mt-4 md:mt-0">Login
                     </button>
                 </nav>
             </div>
