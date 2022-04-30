@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
@@ -62,7 +63,15 @@ const Register = () => {
             toast.error('Input Error!');
             return;
         }else{
+            // Registering with firebase 
             createUserWithEmailAndPassword(userData.email, userData.password);
+
+            const url = 'https://furnitory-app.herokuapp.com/user/add'
+            const userData2 = {name: userData.name, email: userData.email, phone: userData.phone };
+            (async () => {
+                const { data } =  await axios.post(url, userData2);
+            })();
+
             navigate('/');
             toast.success('Account Created Successfuly!')
         }
