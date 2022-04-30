@@ -85,6 +85,7 @@ const ItemUpdate = () => {
                             <img src={img} alt="" className="flex-shrink-0 rounded-lg w-96 h-96 object-cover object-center sm:mb-0 mb-4"/>
                             <div className="flex-grow sm:pl-8">
                                 <h2 className="title-font font-semibold text-2xl text-gray-900 border-b py-1">{name}</h2>
+                                <h3 className="text-slate-700 text-xl border-b py-1 font-semibold">Id: {_id}</h3>
                                 <h3 className="text-slate-700 text-xl border-b py-1 font-semibold">Price: ${price}</h3>
                                 <h3 className="text-slate-700 text-xl border-b py-1 font-semibold">In Stock: {qty} Pcs</h3>
                                 <h3 className="text-slate-700 text-xl border-b py-1 font-semibold">Supplier Name: {supplierName}</h3>
