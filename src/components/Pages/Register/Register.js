@@ -1,9 +1,20 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import googleIcon from '../../../assets/icons/google.png';
+import auth from '../../../firebase.init';
 
 const Register = () => {
+
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useCreateUserWithEmailAndPassword(auth);
+
+      const navigate = useNavigate();
 
     // Input User state 
     const [userData, setUserData] = useState({
@@ -51,9 +62,10 @@ const Register = () => {
             toast.error('Input Error!');
             return;
         }else{
-            console.log(userData);
+            createUserWithEmailAndPassword(userData.email, userData.password);
+            navigate('/');
+            toast.success('Account Created Successfuly!')
         }
-        console.log(errors);
         
         
     }
