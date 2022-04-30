@@ -2,8 +2,9 @@ import React from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import googleIcon from '../../../assets/icons/google.png';
 import auth from '../../../firebase.init';
+import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
+import Spinner from '../../Shared/Spinner/Spinner';
 
 const Login = () => {
 
@@ -25,6 +26,12 @@ const Login = () => {
         toast.success('Login Successful!');
     };
 
+    if (loading) {
+        return (
+            <Spinner></Spinner>
+        );
+    }
+
     return (
         <div className='container mx-auto my-20 px-4'>
             <div className="md:w-[500px] mx-auto bg-gray-100 rounded-lg p-8 flex flex-col w-full mt-10 md:mt-0">
@@ -44,14 +51,8 @@ const Login = () => {
                 </form>
                 <p className="text-gray-500 mt-3">Didn't Have Any Account? <Link to='/register' className='text-orange-500 border-b border-orange-500 ml-2'>Create Account...</Link></p>
 
-                <div className='mt-5'>
-                    <div className='my-5 flex justify-center items-center'>
-                        <div className='h-[1px] w-[100px] bg-orange-300'></div> <span className='mx-4'>OR</span> <div className='h-[1px] w-[100px] bg-orange-300'></div>
-                    </div>
-                    <button className="text-white bg-orange-500 border-0 py-2 px-8 focus:outline-none w-full hover:bg-orange-600 rounded text-lg flex items-center justify-center">
-                        <img src={googleIcon} className='mr-3' alt="" />
-                        Continue With Google</button>
-                </div>
+                <SocialLogin></SocialLogin>
+                
             </div>
         </div>
     );

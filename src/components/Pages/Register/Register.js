@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import googleIcon from '../../../assets/icons/google.png';
 import auth from '../../../firebase.init';
+import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 
 const Register = () => {
 
@@ -114,14 +114,7 @@ const Register = () => {
                 </form>
                 <p className="text-gray-500 mt-3">Already Have An Account? <Link to='/login' className='text-orange-500 border-b border-orange-500 ml-2'>Login Here...</Link></p>
 
-                <div className='mt-5'>
-                    <div className='my-5 flex justify-center items-center'>
-                        <div className='h-[1px] w-[100px] bg-orange-300'></div> <span className='mx-4'>OR</span> <div className='h-[1px] w-[100px] bg-orange-300'></div>
-                    </div>
-                    <button className="text-white bg-orange-500 border-0 py-2 px-8 focus:outline-none w-full hover:bg-orange-600 rounded text-lg flex items-center justify-center">
-                        <img src={googleIcon} className='mr-3' alt="" />
-                        Sign Up With Google</button>
-                </div>
+                <SocialLogin></SocialLogin>
             </div>
         </div>
     );
