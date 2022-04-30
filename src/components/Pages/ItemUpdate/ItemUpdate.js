@@ -8,9 +8,9 @@ const ItemUpdate = () => {
     const [updatedItem, setUpdatedItem] = useState({});
     const params = useParams()
     const [itemDetail, setItemDetail] = useItemDetail(params.id, updatedItem);
-    const { _id, name, text, img, price, qty, supplierName, } = itemDetail;
+    const { _id, name, text, img, price, qty, supplierName, sold } = itemDetail;
 
-    // Handling add stock 
+    // Handling add stock ======================================================
     const handleAddStock = (e) => {
         e.preventDefault();
         // Getting input 
@@ -39,9 +39,42 @@ const ItemUpdate = () => {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-                });
+            });
         })();
     }
+
+
+    // Handling deliverd =========================================================
+    let newStock = qty;
+    let newSold = sold ? sold : 0 ;
+    const handleDelivered = () => {
+        // calculating data
+        newStock = newStock - 1;
+        newSold = newSold + 1;
+
+         // wrapping data with object 
+         const updateData = {name, text, img, price, qty: newStock, sold: newSold, supplierName};
+
+        // Data Saving process on mongodb with axios 
+        ( async () => {
+            const url = `http://localhost:5000/item/update/${_id}`;
+            // sending data to db 
+            const { data } = await axios.put(url, updateData);
+             // updatting ui with new data 
+             setUpdatedItem(updateData);
+
+             // Showing success toast message 
+            toast.success(`1 Item Delivered Successfuly!`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        })();
+    };
 
     return (
         <div className='container mx-auto my-10'>
@@ -56,7 +89,7 @@ const ItemUpdate = () => {
                                 <h3 className="text-slate-700 text-xl border-b py-1 font-semibold">In Stock: {qty} Pcs</h3>
                                 <h3 className="text-slate-700 text-xl border-b py-1 font-semibold">Supplier Name: {supplierName}</h3>
                                 <p className="border-b text-lg py-1">Description: {text}</p>
-                                <h3 className="mb-4 py-1 border-b text-slate-700 text-xl font-semibold">Sold: 0 Pcs</h3>
+                                <h3 className="mb-4 py-1 border-b text-slate-700 text-xl font-semibold">Sold: {sold ? sold : 0} Pcs</h3>
                                 
                             </div>
                         </div>
@@ -65,7 +98,7 @@ const ItemUpdate = () => {
                 <div className='bg-gray-100 rounded-lg shadow-lg p-4'>
                     <div className='flex justify-between items-center border-b py-1 mt-4'>
                         <h3 className='text-orange-500 text-xl py-1 font-semibold'>Is this item delivered?</h3>
-                        <button className='bg-blue-400 px-2 py-1 rounded text-white'>Delivered</button>
+                        <button onClick={handleDelivered} className='bg-blue-400 px-2 py-1 rounded text-white'>Delivered</button>
                     </div>
                     <div className='py-1 mt-5'>
                         <h3 className='text-orange-500 text-xl py-1 font-semibold'>Need to re-stock?</h3>
