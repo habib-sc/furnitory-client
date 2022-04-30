@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 const useItemDetail = (id, item) => {
     const [itemDetail, setItemDetail] = useState({});
-    const url = `http://localhost:5000/item/${id}`;
+    const url = `https://furnitory-app.herokuapp.com/item/${id}`;
 
     useEffect( () => {
         (async () => {

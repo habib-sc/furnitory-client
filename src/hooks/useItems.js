@@ -5,7 +5,7 @@ const useItems = () => {
     const [items, setItems] = useState([]);
     useEffect( () => {
         ( async () => {
-            const { data } = await axios.get('http://localhost:5000/items');
+            const { data } = await axios.get('https://furnitory-app.herokuapp.com/items');
             setItems(data);
         })();
     } , []);

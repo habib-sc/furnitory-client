@@ -22,7 +22,7 @@ const ItemUpdate = () => {
         
         // Data saving process on mongodb with axios 
         ( async () => {
-            const url = `http://localhost:5000/item/update/${_id}`;
+            const url = `https://furnitory-app.herokuapp.com/item/update/${_id}`;
             // sending data to database 
             const { data } = await axios.put(url, updateData);
             // updatting ui with new data 
@@ -57,7 +57,7 @@ const ItemUpdate = () => {
 
         // Data Saving process on mongodb with axios 
         ( async () => {
-            const url = `http://localhost:5000/item/update/${_id}`;
+            const url = `https://furnitory-app.herokuapp.com/item/update/${_id}`;
             // sending data to db 
             const { data } = await axios.put(url, updateData);
              // updatting ui with new data 
