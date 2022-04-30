@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Link, useMatch, useResolvedPath } from 'react-router-dom';
+import { Link, useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 
 const Header = () => {
     const [toggleMenu, setToggleMenu] = useState(false);
+    const navigate = useNavigate();
 
     function MyLink({ children, to, ...props }: LinkProps) {
         let resolved = useResolvedPath(to);
@@ -37,7 +38,9 @@ const Header = () => {
                     <MyLink to='/' className="mr-5 hover:text-gray-900">Home</MyLink>
                     <MyLink to='/blogs' className="mr-5 hover:text-gray-900">Blogs</MyLink>
                     <MyLink to='/inventory' className="mr-5 hover:text-gray-900">Manage Inventory</MyLink>
-                    <button className="inline-flex items-center bg-orange-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-white mt-4 md:mt-0">Login
+                    <button onClick={ () => navigate('/login') } className="inline-flex items-center bg-indigo-500 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-400 rounded text-white mt-4 md:mt-0 mr-3">Login
+                    </button>
+                    <button onClick={ () => navigate('/register') } className="inline-flex items-center bg-orange-500 border-0 py-1 px-3 focus:outline-none hover:bg-orange-400 rounded text-white mt-4 md:mt-0">Register
                     </button>
                 </nav>
             </div>
