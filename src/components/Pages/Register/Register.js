@@ -1,42 +1,103 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import googleIcon from '../../../assets/icons/google.png';
 
 const Register = () => {
+
+    // Input User state 
+    const [userData, setUserData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        password: '',
+        confirmPassword: ''
+    });
+
+    // Input Error state 
+    const [errors, setErrors] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        password: ''
+    })
+
+    // Getting inputs 
+    const getNameInput = e => {
+        setUserData({...userData, name: e.target.value});
+    }
+    const getEmailInput = e => {
+        setUserData({...userData, email: e.target.value});
+    }
+    const getPhoneInput = e => {
+        setUserData({...userData, phone: e.target.value});
+    }
+    const getPasswordInput = e => {
+        setUserData({...userData, password: e.target.value});
+    }
+    const getConfirmPasswordInput = e => {
+        if (userData.password !== e.target.value) {
+            setErrors({...errors, password: 'Password Not Matched!'});
+        }else {
+            setUserData({...userData, confirmPassword: e.target.value});
+            setErrors({...errors, password: ''});
+        }
+    }
+
+    // Handling Register 
+    const handleRegister = e => {
+        e.preventDefault();
+        if (errors.name || errors.email || errors.phone || errors.password) {
+            toast.error('Input Error!');
+            return;
+        }else{
+            console.log(userData);
+        }
+        console.log(errors);
+        
+        
+    }
+
     return (
         <div className='container mx-auto my-20 px-4'>
-            <div class="md:w-[500px] mx-auto bg-gray-100 rounded-lg p-8 flex flex-col w-full mt-10 md:mt-0">
-                <h2 class="text-gray-900 text-2xl text-center font-semibold title-font mb-5">Sign Up</h2>
-                <form>
-                    <div class="relative mb-4">
-                        <label for="fullName" class="leading-7 text-gray-600">Full Name</label>
-                        <input type="text" id='fullName' name="fullName" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+            <div className="md:w-[500px] mx-auto bg-gray-100 rounded-lg p-8 flex flex-col w-full mt-10 md:mt-0">
+                <h2 className="text-gray-900 text-2xl text-center font-semibold title-font mb-5">Sign Up</h2>
+                <form onSubmit={handleRegister}>
+                    <div className="relative mb-4">
+                        <label htmlFor="fullName" className="leading-7 text-gray-600">Full Name</label>
+                        <input onChange={getNameInput} type="text" id='fullName' name="fullName" required className="w-full bg-white rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
                     </div>
-                    <div class="relative mb-4">
-                        <label for="email" class="leading-7 text-gray-600">Email</label>
-                        <input type="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+                    <div className="relative mb-4">
+                        <label htmlFor="email" className="leading-7 text-gray-600">Email</label>
+                        <input onChange={getEmailInput} type="email" id="email" name="email" required className="w-full bg-white rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
                     </div>
-                    <div class="relative mb-4">
-                        <label for="phone" class="leading-7 text-gray-600">Phone</label>
-                        <input type="number" id="phone" name="phone" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+                    <div className="relative mb-4">
+                        <label htmlFor="phone" className="leading-7 text-gray-600">Phone</label>
+                        <input onChange={getPhoneInput} type="number" id="phone" name="phone" required className="w-full bg-white rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
                     </div>
-                    <div class="relative mb-4">
-                        <label for="password" class="leading-7 text-gray-600">Password</label>
-                        <input type="password" id="password" name="password" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+                    <div className="relative mb-4">
+                        <label htmlFor="password" className="leading-7 text-gray-600">Password</label>
+                        <input onChange={getPasswordInput} type="password" id="password" name="password" required className="w-full bg-white rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+                        {errors.password &&
+                            <p className='text-red-500 pt-1'>{errors.password}</p>
+                        }
                     </div>
-                    <div class="relative mb-4">
-                        <label for="confirmPassword" class="leading-7 text-gray-600">Confirm Password</label>
-                        <input type="password" id="confirmPassword" name="confirmPassword" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+                    <div className="relative mb-4">
+                        <label htmlFor="confirmPassword" className="leading-7 text-gray-600">Confirm Password</label>
+                        <input onChange={getConfirmPasswordInput} type="password" id="confirmPassword" name="confirmPassword" required className="w-full bg-white rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
+                        {errors.password &&
+                            <p className='text-red-500 pt-1'>{errors.password}</p>
+                        }
                     </div>
-                    <button class="text-white bg-orange-500 border-0 py-2 px-8 focus:outline-none w-full hover:bg-indigo-600 rounded text-lg">Sign Up</button>
+                    <button className="text-white bg-orange-500 border-0 py-2 px-8 focus:outline-none w-full hover:bg-orange-600 rounded text-lg">Sign Up</button>
                 </form>
-                <p class="text-gray-500 mt-3">Already Have An Account? <Link to='/login' className='text-orange-500 border-b border-orange-500 ml-2'>Login Here...</Link></p>
+                <p className="text-gray-500 mt-3">Already Have An Account? <Link to='/login' className='text-orange-500 border-b border-orange-500 ml-2'>Login Here...</Link></p>
 
                 <div className='mt-5'>
                     <div className='my-5 flex justify-center items-center'>
                         <div className='h-[1px] w-[100px] bg-orange-300'></div> <span className='mx-4'>OR</span> <div className='h-[1px] w-[100px] bg-orange-300'></div>
                     </div>
-                    <button class="text-white bg-orange-500 border-0 py-2 px-8 focus:outline-none w-full hover:bg-indigo-600 rounded text-lg flex items-center justify-center">
+                    <button className="text-white bg-orange-500 border-0 py-2 px-8 focus:outline-none w-full hover:bg-orange-600 rounded text-lg flex items-center justify-center">
                         <img src={googleIcon} className='mr-3' alt="" />
                         Sign Up With Google</button>
                 </div>
