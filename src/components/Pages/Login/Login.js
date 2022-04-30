@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
@@ -9,6 +9,8 @@ import Spinner from '../../Shared/Spinner/Spinner';
 const Login = () => {
 
     const navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
     const [
         signInWithEmailAndPassword,
@@ -22,7 +24,6 @@ const Login = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         signInWithEmailAndPassword(email, password);
-        navigate('/');
         toast.success('Login Successful!');
     };
 
@@ -30,6 +31,10 @@ const Login = () => {
         return (
             <Spinner></Spinner>
         );
+    }
+
+    if (user) {
+        navigate(from, { replace: true });
     }
 
     return (

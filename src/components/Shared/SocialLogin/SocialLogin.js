@@ -1,16 +1,28 @@
 import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import googleIcon from '../../../assets/icons/google.png';
 import auth from '../../../firebase.init';
+import Spinner from '../Spinner/Spinner';
 
 const SocialLogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
     const handleGoogleLogin = () => {
         signInWithGoogle();
-        navigate('/');
+    }
+
+    if (loading) {
+        return (
+            <Spinner></Spinner>
+        );
+    }
+
+    if (user) {
+        navigate(from, { replace: true });
     }
 
     return (

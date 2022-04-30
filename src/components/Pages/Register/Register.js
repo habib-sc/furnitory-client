@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
+import Spinner from '../../Shared/Spinner/Spinner';
 
 const Register = () => {
 
@@ -75,8 +76,12 @@ const Register = () => {
             navigate('/');
             toast.success('Account Created Successfuly!')
         }
-        
-        
+    }
+
+    if (loading) {
+        return (
+            <Spinner></Spinner>
+        );
     }
 
     return (
