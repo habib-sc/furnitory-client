@@ -51,7 +51,7 @@ const Login = () => {
                 </form>
                 <p className="text-gray-500 mt-3">Didn't Have Any Account? <Link to='/register' className='text-orange-500 border-b border-orange-500 ml-2'>Create Account...</Link></p>
 
-                <SocialLogin></SocialLogin>
+                <SocialLogin></SocialLogin> 
                 
             </div>
         </div>
