@@ -1,14 +1,35 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import googleIcon from '../../../assets/icons/google.png';
+import auth from '../../../firebase.init';
 
 const Login = () => {
+
+    const navigate = useNavigate();
+
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useSignInWithEmailAndPassword(auth);
+
+    const handleLogin = e => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        signInWithEmailAndPassword(email, password);
+        navigate('/');
+        toast.success('Login Successful!');
+    };
+
     return (
         <div className='container mx-auto my-20 px-4'>
             <div className="md:w-[500px] mx-auto bg-gray-100 rounded-lg p-8 flex flex-col w-full mt-10 md:mt-0">
                 <h2 className="text-gray-900 text-2xl text-center font-semibold title-font mb-5">Login</h2>
-                <form>
-                    
+                <form onSubmit={handleLogin}>  
                     <div className="relative mb-4">
                         <label htmlFor="email" className="leading-7 text-gray-600">Email</label>
                         <input type="email" id="email" name="email" className="w-full bg-white rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
