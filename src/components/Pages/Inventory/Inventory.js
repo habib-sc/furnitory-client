@@ -2,12 +2,19 @@ import React from 'react';
 import { PlusLg, Search } from 'react-bootstrap-icons';
 import { useNavigate } from 'react-router-dom';
 import useItems from '../../../hooks/useItems';
+import Spinner from '../../Shared/Spinner/Spinner';
 import InventoryItem from './InventoryItem/InventoryItem';
 
 const Inventory = () => {
     const navigate = useNavigate();
 
     const [items, setItems] = useItems();
+
+    if (items.length === 0) {
+        return (
+            <Spinner></Spinner>
+        );
+    }
 
     return (
         <div className='container mx-auto py-10'> 

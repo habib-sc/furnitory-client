@@ -1,22 +1,41 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { CheckLg } from 'react-bootstrap-icons';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import Spinner from '../../../Shared/Spinner/Spinner';
 
 const AddItem = () => {
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
 
     const handleItemAdd = e => {
         e.preventDefault();
         const item = {
             name: e.target.itemName.value,
             text: e.target.description.value,
-            price: e.target.price.value,
-            stock: e.target.stock.value,
+            price: parseInt(e.target.price.value),
+            stock: parseInt(e.target.stock.value),
             supplierName: e.target.supplierName.value,
             img: e.target.imageUrl.value
-        }
-        console.log(item);
+        };
+        setLoading(!loading);
+
+        ( async () => {
+            const url = 'https://furnitory-app.herokuapp.com/item/add';
+            const { data } = await axios.post(url, item);
+            navigate('/inventory');
+            toast.success('Item Added Successfuly!');
+            console.log(data);
+        })();
+
         
+    }
+
+    if (loading) {
+        return (
+            <Spinner></Spinner>
+        );
     }
 
     return (
