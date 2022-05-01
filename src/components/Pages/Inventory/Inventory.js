@@ -9,9 +9,9 @@ import InventoryItem from './InventoryItem/InventoryItem';
 
 const Inventory = () => {
     const navigate = useNavigate();
-
     const [items, setItems] = useItems();
 
+    // Handling delete item =======================================================
     const handleItemDelete = id => {
         const url = `https://furnitory-app.herokuapp.com/item/delete/${id}`
         const { data } = axios.delete(url);

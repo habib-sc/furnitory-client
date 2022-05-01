@@ -15,7 +15,7 @@ const MyItems = () => {
 
     const [itemsByEmail, setItemsByEmail] = useItemsByEmail(user.email);
 
-    const handleItemDelete = id => {
+    const handleMyItemDelete = id => {
         const url = `https://furnitory-app.herokuapp.com/item/delete/${id}`
         const { data } = axios.delete(url);
 
@@ -80,7 +80,7 @@ const MyItems = () => {
                     </thead>
                     <tbody>
                         {
-                            itemsByEmail.map(item => <InventoryItem key={item._id} item={item} handleItemDelete={handleItemDelete}></InventoryItem>)
+                            itemsByEmail.map(item => <InventoryItem key={item._id} item={item} handleMyItemDelete={handleMyItemDelete}></InventoryItem>)
                         }
                     </tbody>
                 </table>
