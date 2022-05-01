@@ -1,6 +1,8 @@
+import axios from 'axios';
 import React from 'react';
 import { PlusLg, Search } from 'react-bootstrap-icons';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import useItems from '../../../hooks/useItems';
 import Spinner from '../../Shared/Spinner/Spinner';
 import InventoryItem from './InventoryItem/InventoryItem';
@@ -9,6 +11,16 @@ const Inventory = () => {
     const navigate = useNavigate();
 
     const [items, setItems] = useItems();
+
+    const handleItemDelete = id => {
+        const url = `https://furnitory-app.herokuapp.com/item/delete/${id}`
+        const { data } = axios.delete(url);
+
+        // updating Ui
+        toast.success('Item Deleted Successfuly!');
+        const newItems = items.filter(item => item._id !== id);
+        setItems(newItems);
+    };
 
     if (items.length === 0) {
         return (
@@ -26,7 +38,7 @@ const Inventory = () => {
                             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <Search></Search>
                             </div>
-                            <input type="text" id="table-search" className="bg-gray-50 border border-orange-500 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-96 pl-10 p-2.5" placeholder="Search for items"/>
+                            <input type="text" id="table-search" className="bg-gray-50 border border-orange-500 text-gray-900 text-sm rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none block w-96 pl-10 p-2.5" placeholder="Search for items"/>
                         </div>
                     </div>
                     <button onClick={ () => navigate('/inventory/add')}  className="flex justify-center items-center text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-400 rounded text-lg mt-10 sm:mt-0">
@@ -65,7 +77,7 @@ const Inventory = () => {
                     </thead>
                     <tbody>
                         {
-                            items.map(item => <InventoryItem key={item._id} item={item}></InventoryItem>)
+                            items.map(item => <InventoryItem key={item._id} item={item} handleItemDelete={handleItemDelete}></InventoryItem>)
                         }
                     </tbody>
                 </table>

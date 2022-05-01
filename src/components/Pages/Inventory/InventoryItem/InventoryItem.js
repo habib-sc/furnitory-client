@@ -2,7 +2,8 @@ import React from 'react';
 import { Trash } from 'react-bootstrap-icons';
 
 const InventoryItem = (props) => {
-    const { name, img, text, price, qty, supplierName, sold } = props.item;
+    const {_id, name, img, text, price, qty, supplierName, sold } = props.item;
+    const { handleItemDelete } = props;
     return (
             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td className="w-[80px] py-4">
@@ -27,7 +28,7 @@ const InventoryItem = (props) => {
                     {supplierName}
                 </td>
                 <td className="px-6 py-4 text-right">
-                    <button className='border p-2 rounded-full hover:bg-orange-50'>
+                    <button onClick={ () => handleItemDelete(_id)} className='border p-2 rounded-full hover:bg-orange-50'>
                         <Trash className='text-3xl text-red-500'></Trash>
                     </button>
                 </td>

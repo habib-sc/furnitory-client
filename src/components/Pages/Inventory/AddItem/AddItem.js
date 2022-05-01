@@ -15,7 +15,7 @@ const AddItem = () => {
             name: e.target.itemName.value,
             text: e.target.description.value,
             price: parseInt(e.target.price.value),
-            stock: parseInt(e.target.stock.value),
+            qty: parseInt(e.target.stock.value),
             supplierName: e.target.supplierName.value,
             img: e.target.imageUrl.value
         };
