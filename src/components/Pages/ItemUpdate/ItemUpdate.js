@@ -97,16 +97,16 @@ const ItemUpdate = () => {
                     </div>
                 </div>
                 <div className='bg-gray-100 rounded-lg shadow-lg p-4'>
-                    <div className='flex justify-between items-center border-b py-1 mt-4'>
+                    <div className='flex justify-between items-center border-b py-4'>
                         <h3 className='text-orange-500 text-xl py-1 font-semibold'>Is this item delivered?</h3>
-                        <button onClick={handleDelivered} className='bg-blue-400 px-2 py-1 rounded text-white'>Delivered</button>
+                        <button onClick={handleDelivered} className='bg-indigo-500 hover:bg-indigo-400 px-2 py-2 px-3 rounded text-white'>Delivered</button>
                     </div>
-                    <div className='py-1 mt-5'>
+                    <div className='py-4'>
                         <h3 className='text-orange-500 text-xl py-1 font-semibold'>Need to re-stock?</h3>
-                        <div className='border-b py-1'>
+                        <div className='border-b'>
                             <form onSubmit={handleAddStock} className='flex justify-between items-center'>
-                                <input type="number" name='addStock' placeholder='Stock Quantity' className='py-1 px-1 rounded my-4 border focus:outline-none focus:outline-orange-500' /> <br />
-                                <input type="submit" className='bg-blue-400 px-2 py-1 rounded text-white cursor-pointer' value='Add Stock' />
+                                <input type="number" name='addStock' placeholder='Stock Quantity' className='px-2 py-2 px-3 rounded my-4 border focus:outline-none focus:outline-orange-500' /> <br />
+                                <input type="submit" className='bg-indigo-500 hover:bg-indigo-400 px-2 py-2 px-3 rounded text-white cursor-pointer' value='Add Stock' />
                             </form>
                         </div>
                     </div>
