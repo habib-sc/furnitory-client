@@ -1,13 +1,16 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { CheckLg } from 'react-bootstrap-icons';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import auth from '../../../../firebase.init';
 import Spinner from '../../../Shared/Spinner/Spinner';
 
 const AddItem = () => {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
+    const [user, loadingAuth, error] = useAuthState(auth);
 
     const handleItemAdd = e => {
         e.preventDefault();
@@ -17,7 +20,8 @@ const AddItem = () => {
             price: parseInt(e.target.price.value),
             qty: parseInt(e.target.stock.value),
             supplierName: e.target.supplierName.value,
-            img: e.target.imageUrl.value
+            img: e.target.imageUrl.value,
+            addedBy: user.email
         };
         setLoading(!loading);
 
@@ -26,7 +30,6 @@ const AddItem = () => {
             const { data } = await axios.post(url, item);
             navigate('/inventory');
             toast.success('Item Added Successfuly!');
-            console.log(data);
         })();
 
         

@@ -1,16 +1,19 @@
 import axios from 'axios';
 import React from 'react';
 import { PlusLg, Search } from 'react-bootstrap-icons';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import useItems from '../../../hooks/useItems';
-import Spinner from '../../Shared/Spinner/Spinner';
-import InventoryItem from './InventoryItem/InventoryItem';
+import auth from '../../../../firebase.init';
+import useItemsByEmail from '../../../../hooks/useItemsByEmail';
+import Spinner from '../../../Shared/Spinner/Spinner';
+import InventoryItem from '../InventoryItem/InventoryItem';
 
-const Inventory = () => {
+const MyItems = () => {
+    const [user, loading, error] = useAuthState(auth);
     const navigate = useNavigate();
 
-    const [items, setItems] = useItems();
+    const [itemsByEmail, setItemsByEmail] = useItemsByEmail(user.email);
 
     const handleItemDelete = id => {
         const url = `https://furnitory-app.herokuapp.com/item/delete/${id}`
@@ -18,11 +21,11 @@ const Inventory = () => {
 
         // updating Ui
         toast.success('Item Deleted Successfuly!');
-        const newItems = items.filter(item => item._id !== id);
-        setItems(newItems);
+        const newItems = itemsByEmail.filter(item => item._id !== id);
+        setItemsByEmail(newItems);
     };
 
-    if (items.length === 0) {
+    if (itemsByEmail.length === 0) {
         return (
             <Spinner></Spinner>
         );
@@ -77,14 +80,13 @@ const Inventory = () => {
                     </thead>
                     <tbody>
                         {
-                            items.map(item => <InventoryItem key={item._id} item={item} handleItemDelete={handleItemDelete}></InventoryItem>)
+                            itemsByEmail.map(item => <InventoryItem key={item._id} item={item} handleItemDelete={handleItemDelete}></InventoryItem>)
                         }
                     </tbody>
                 </table>
             </div>
-
         </div>
     );
 };
 
-export default Inventory;
+export default MyItems;

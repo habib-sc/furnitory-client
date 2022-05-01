@@ -45,7 +45,7 @@ const Header = () => {
                       <>
                         <MyLink to='/inventory' className="mr-5 hover:text-gray-900">Manage Items</MyLink>
                         <MyLink to='/inventory/add' className="mr-5 hover:text-gray-900">Add Items</MyLink>
-                        <MyLink to='/inventory' className="mr-5 hover:text-gray-900">My Items</MyLink>
+                        <MyLink to='/my-items' className="mr-5 hover:text-gray-900">My Items</MyLink>
                       </>
                     }
 

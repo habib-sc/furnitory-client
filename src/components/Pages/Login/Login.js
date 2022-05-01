@@ -4,7 +4,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
-import Spinner from '../../Shared/Spinner/Spinner';
 
 const Login = () => {
 
@@ -27,11 +26,6 @@ const Login = () => {
         toast.success('Login Successful!');
     };
 
-    if (loading) {
-        return (
-            <Spinner></Spinner>
-        );
-    }
 
     if (user) {
         navigate(from, { replace: true });
