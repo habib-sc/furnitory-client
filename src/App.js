@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import Blogs from './components/Pages/Blogs/Blogs';
 import Home from './components/Pages/Home/Home';
+import AddItem from './components/Pages/Inventory/AddItem/AddItem';
 import Inventory from './components/Pages/Inventory/Inventory';
 import ItemUpdate from './components/Pages/ItemUpdate/ItemUpdate';
 import Login from './components/Pages/Login/Login';
@@ -30,6 +31,12 @@ function App() {
         <Route path='/inventory/:id' element={
           <RequireAuth>
             <ItemUpdate></ItemUpdate>
+          </RequireAuth>
+        }></Route>
+
+        <Route path='/inventory/add' element={
+          <RequireAuth>
+            <AddItem></AddItem>
           </RequireAuth>
         }></Route>
 

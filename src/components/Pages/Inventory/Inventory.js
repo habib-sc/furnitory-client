@@ -1,9 +1,11 @@
 import React from 'react';
 import { PlusLg, Search } from 'react-bootstrap-icons';
+import { useNavigate } from 'react-router-dom';
 import useItems from '../../../hooks/useItems';
-import InventoryItem from './InventoryItem';
+import InventoryItem from './InventoryItem/InventoryItem';
 
 const Inventory = () => {
+    const navigate = useNavigate();
 
     const [items, setItems] = useItems();
 
@@ -20,7 +22,7 @@ const Inventory = () => {
                             <input type="text" id="table-search" className="bg-gray-50 border border-orange-500 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-96 pl-10 p-2.5" placeholder="Search for items"/>
                         </div>
                     </div>
-                    <button className="flex justify-center items-center text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-400 rounded text-lg mt-10 sm:mt-0">
+                    <button onClick={ () => navigate('/inventory/add')}  className="flex justify-center items-center text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-400 rounded text-lg mt-10 sm:mt-0">
                         <PlusLg className='text-2xl mr-2 text-white'></PlusLg> 
                         Add New Item
                     </button>
@@ -33,6 +35,9 @@ const Inventory = () => {
                             </th>
                             <th scope="col" className="px-6 py-1 font-bold text-orange-500">
                                 Item name
+                            </th>
+                            <th scope="col" className="pr-6 py-1 font-bold text-orange-500">
+                                Short Description
                             </th>
                             <th scope="col" className="px-6 py-1 font-bold text-orange-500">
                                 Price

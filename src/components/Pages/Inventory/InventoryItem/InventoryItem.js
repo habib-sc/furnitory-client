@@ -11,6 +11,9 @@ const InventoryItem = (props) => {
                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                     {name}
                 </th>
+                <th scope="row" className="w-64 pr-4 py-4 font-medium text-gray-500">
+                    {text}
+                </th>
                 <td className="px-6 py-4 font-medium">
                     ${price}
                 </td>
