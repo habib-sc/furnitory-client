@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -22,6 +23,15 @@ const SocialLogin = () => {
     }
 
     if (user) {
+        const url = 'https://furnitory-app.herokuapp.com/login';
+
+        ( async () => {
+            // sending email and get token 
+            const { data } = await axios.post(url, {email: user.user.email});
+            // saving token in localStorage 
+            localStorage.setItem("accessToken", data.token);
+        })();
+
         navigate(from, { replace: true });
     }
 

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -32,8 +33,17 @@ const Login = () => {
     }
 
     if (user) {
+        const url = 'https://furnitory-app.herokuapp.com/login';
+        ( async () => {
+            // sending email and get token 
+            const { data } = await axios.post(url, {email: user.user.email});
+            // saving token in localStorage 
+            localStorage.setItem("accessToken", data.token);
+        })();
         navigate(from, { replace: true });
     }
+
+    
 
     return (
         <div className='container mx-auto my-20 px-4'>
