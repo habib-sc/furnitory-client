@@ -2,6 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import AddBlog from './components/Pages/Blogs/AddBlog/AddBlog';
+import BlogDetail from './components/Pages/Blogs/BlogDetail/BlogDetail';
 import Blogs from './components/Pages/Blogs/Blogs';
 import Home from './components/Pages/Home/Home';
 import AddItem from './components/Pages/Inventory/AddItem/AddItem';
@@ -22,7 +24,14 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+        <Route path='/blog/:id' element={<BlogDetail></BlogDetail>}></Route>
         
+        <Route path='/add-blog' element={
+          <RequireAuth>
+            <AddBlog></AddBlog>
+          </RequireAuth>
+        }></Route>
+
         <Route path='/inventory' element={
           <RequireAuth>
             <Inventory></Inventory>
