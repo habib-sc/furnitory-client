@@ -10,6 +10,7 @@ import MyItems from './components/Pages/Inventory/MyItems/MyItems';
 import ItemUpdate from './components/Pages/ItemUpdate/ItemUpdate';
 import Login from './components/Pages/Login/Login';
 import RequireAuth from './components/Pages/Login/RequireAuth/RequireAuth';
+import NotFound from './components/Pages/NotFound/NotFound';
 import Register from './components/Pages/Register/Register';
 import Footer from './components/Shared/Footer/Footer';
 import Header from './components/Shared/Header/Header';
@@ -48,6 +49,7 @@ function App() {
 
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer></ToastContainer>
