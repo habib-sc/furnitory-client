@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -9,12 +9,13 @@ import Spinner from '../../Shared/Spinner/Spinner';
 
 const Register = () => {
 
+    // register hook 
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+      ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
 
       const navigate = useNavigate();
 
@@ -66,22 +67,38 @@ const Register = () => {
         }else{
             // Registering with firebase 
             createUserWithEmailAndPassword(userData.email, userData.password);
-
-            const url = 'https://furnitory-app.herokuapp.com/user/add'
-            const userData2 = {name: userData.name, email: userData.email, phone: userData.phone };
-            (async () => {
-                const { data } =  await axios.post(url, userData2);
-            })();
-
-            navigate('/');
-            toast.success('Account Created Successfuly!')
         }
+    }
+
+    if (user) {
+        const url = 'https://furnitory-app.herokuapp.com/user/add'
+        const userData2 = {name: userData.name, email: userData.email, phone: userData.phone };
+        (async () => {
+            const { data } =  await axios.post(url, userData2);
+        })();
+
+        navigate('/');
+        toast.success('Account Created Successfuly!')
     }
 
     if (loading) {
         return (
             <Spinner></Spinner>
         );
+    }
+
+    if (error){
+        switch(error?.code){
+            case "auth/invalid-email":
+                toast.error("Invalid Email!", { toastId: 'invalidemail'});
+                break;
+            case "auth/email-already-in-use":
+                toast.error("User Already Exists!", { toastId: 'useralreadyexists'});
+                break;
+            default:
+                toast.error(error.code.split('/')[1], { toastId: 'defaultregistererror'});
+                break;
+        }
     }
 
     return (
