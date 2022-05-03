@@ -15,9 +15,8 @@ const Header = () => {
         let match = useMatch({ path: resolved.pathname, end: true });
       
         return (
-          <div>
+          <div className={`${match? 'text-orange-500 border-2 border-orange-500 rounded' : ''} font-semibold pt-[2px] pb-[3px]`}>
             <Link
-              style={{ textDecoration: match ? "underline" : "none" }}
               to={to}
               {...props}
             >
@@ -39,24 +38,24 @@ const Header = () => {
                     </Link>
                 </div>
                 
-                <nav className={`md:ml-auto md:flex text-base justify-center md:static ${toggleMenu? 'top-16 bg-gray-100 w-full mt-2' : 'hidden'}`}>
-                    <MyLink to='/' className="mr-5 hover:text-gray-900">Home</MyLink>
-                    <MyLink to='/blogs' className="mr-5 hover:text-gray-900">Blogs</MyLink>
+                <nav className={`md:ml-auto md:flex text-base justify-center items-center md:static ${toggleMenu? 'top-16 bg-gray-100 w-full mt-2' : 'hidden'}`}>
+                    <MyLink to='/' className="mx-3 hover:text-gray-900">Home</MyLink>
+                    <MyLink to='/blogs' className="mx-3 hover:text-gray-900">Blogs</MyLink>
                     {user &&
                       <>
-                        <MyLink to='/add-blog' className="mr-5 hover:text-gray-900">Add Blog</MyLink>
-                        <MyLink to='/inventory' className="mr-5 hover:text-gray-900">Manage Items</MyLink>
-                        <MyLink to='/inventory/add' className="mr-5 hover:text-gray-900">Add Items</MyLink>
-                        <MyLink to='/my-items' className="mr-5 hover:text-gray-900">My Items</MyLink>
+                        <MyLink to='/add-blog' className="mx-3 hover:text-gray-900">Add Blog</MyLink>
+                        <MyLink to='/inventory' className="mx-3 hover:text-gray-900">Manage Items</MyLink>
+                        <MyLink to='/inventory/add' className="mx-3 hover:text-gray-900">Add Items</MyLink>
+                        <MyLink to='/my-items' className="mx-3 hover:text-gray-900">My Items</MyLink>
                       </>
                     }
 
                     {user ?
-                    <button onClick={ () => signOut(auth) } className="inline-flex items-center bg-orange-500 border-0 py-1 px-3 focus:outline-none hover:bg-orange-400 rounded text-white mt-4 md:mt-0 mr-3">Logout
+                    <button onClick={ () => signOut(auth) } className="inline-flex items-center bg-orange-500 border-0 py-1 px-3 focus:outline-none hover:bg-orange-400 rounded text-white mt-4 md:mt-0 mx-3">Logout
                     </button>
                     : 
                     <>
-                      <button onClick={ () => navigate('/login') } className="inline-flex items-center bg-indigo-500 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-400 rounded text-white mt-4 md:mt-0 mr-3">Login
+                      <button onClick={ () => navigate('/login') } className="inline-flex items-center bg-indigo-500 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-400 rounded text-white mt-4 md:mt-0 mx-3">Login
                       </button>
                       <button onClick={ () => navigate('/register') } className="inline-flex items-center bg-orange-500 border-0 py-1 px-3 focus:outline-none hover:bg-orange-400 rounded text-white mt-4 md:mt-0">Register
                       </button>
