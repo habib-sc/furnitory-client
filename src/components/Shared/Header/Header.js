@@ -1,5 +1,6 @@
 import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
+import { List } from 'react-bootstrap-icons';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 import auth from '../../../firebase.init';
@@ -28,13 +29,13 @@ const Header = () => {
 
     return (
         <header className="text-gray-600 body-font bg-gray-100">
-            <div className="container mx-auto flex flex-wrap py-5 flex-col md:flex-row">
+            <div className="container mx-auto flex flex-wrap py-5 px-4 md:px-0 flex-col md:flex-row">
                 <div className='flex justify-between items-center'>
                     <button onClick={ () => {setToggleMenu(!toggleMenu)}} className='md:hidden'>
-                        |||
+                        <List className='text-3xl text-orange-100 bg-orange-500 rounded'></List>
                     </button>
                     <Link to='/' className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-                        <span className="ml-3 text-xl">Furnitory</span>
+                        <span className="ml-3 text-3xl font-bold text-orange-500">Furnitory</span>
                     </Link>
                 </div>
                 
