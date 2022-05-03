@@ -24,11 +24,11 @@ const Blogs = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 gap-8 my-10'>
                 {
                     blogs.map(blog => <div key={blog._id}>
-                        <article className='h-[230px] bg-gray-100 rounded-lg shadow-lg p-5 flex items-center'>
+                        <article className='min-h-[230px] bg-gray-100 rounded-lg shadow-lg p-5 flex items-center'>
                             <img src={blog.img} className='w-48 rounded-lg' alt="" />
                             <div className='px-5'>
                                 <h3 className='text-2xl text-slate-600 font-medium'>{blog.title}</h3>
-                                <p className='text-slate-600'>{blog.description.slice(0, 200)}</p>
+                                <p className='text-slate-600'>{blog.description.slice(0, 120)} ...</p>
                                 <button onClick={ () => handleReadMore(blog._id)} className='text-lg text-indigo-400 hover:text-indigo-300'>Read More</button>
                             </div>
                         </article>

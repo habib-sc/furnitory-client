@@ -33,15 +33,15 @@ const MyItems = () => {
 
     return (
         <div className='container mx-auto py-10'> 
-            <div className="relative overflow-x-auto sm:rounded-lg">
-                <div className="py-4 flex justify-between">
+            <div className="relative overflow-x-auto sm:rounded-lg px-4 md:px-0">
+                <div className="py-4 flex flex-col justify-center md:flex-row md:justify-between">
                     <div>
                         <label htmlFor="table-search" className="sr-only">Search</label>
                         <div className="relative mt-1">
                             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <Search></Search>
                             </div>
-                            <input type="text" id="table-search" className="bg-gray-50 border border-orange-500 text-gray-900 text-sm rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none block w-96 pl-10 p-2.5" placeholder="Search for items"/>
+                            <input type="text" id="table-search" className="bg-gray-50 border border-orange-500 text-gray-900 text-sm rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none block w-full md:w-96 pl-10 p-2.5" placeholder="Search for items"/>
                         </div>
                     </div>
                     <button onClick={ () => navigate('/inventory/add')}  className="flex justify-center items-center text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-400 rounded text-lg mt-10 sm:mt-0">

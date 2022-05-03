@@ -45,7 +45,7 @@ const AddBlog = () => {
             <h3 className="text-3xl font-medium text-center leading-6 text-gray-900">Add Blog</h3>
         </div>
 
-        <form onSubmit={handleBlogAdd} className='w-full'>
+        <form onSubmit={handleBlogAdd} className='w-full px-4 md:px-0'>
             <div className="px-4 py-5 bg-white border md:w-[500px] mx-auto rounded-lg sm:p-6">
                 <div className="grid grid-cols-1">
                     <div className="">
