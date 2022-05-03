@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 import Spinner from '../../Shared/Spinner/Spinner';
@@ -25,6 +26,24 @@ const Login = () => {
         const password = e.target.password.value;
         signInWithEmailAndPassword(email, password);
     };
+
+    // Handling Login errors 
+    if (error){
+        switch(error?.code){
+            case "auth/invalid-email":
+                toast.error("Invalid Email!", { toastId: 'invalidemail'});
+                break;
+            case "auth/wrong-password":
+                toast.error("Password Dont't Match!", { toastId: 'passworddontmatch'});
+                break;
+            case "auth/user-not-found":
+                toast.error("User Not Found!", { toastId: 'usernotfound'});
+                break;
+            default:
+                toast.error("Something Went Wrong!", { toastId: 'defaulterrorcase'});
+                break;
+        }
+    }
 
     if (loading) {
         return (

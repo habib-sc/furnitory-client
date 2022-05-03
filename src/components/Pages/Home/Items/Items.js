@@ -2,12 +2,17 @@ import React from 'react';
 import { ArrowRightShort } from 'react-bootstrap-icons';
 import { useNavigate } from 'react-router-dom';
 import useItems from '../../../../hooks/useItems';
+import Spinner from '../../../Shared/Spinner/Spinner';
 import Item from './Item/Item';
 
 const Items = () => {
     const [items, setItems] = useItems();
     const limitedItems = items.splice(0, 6);
     const navigate = useNavigate();
+
+    if (limitedItems.length === 0) {
+        return <Spinner></Spinner>
+    }
 
     return (
         <section>
