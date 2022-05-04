@@ -5,6 +5,7 @@ import './App.css';
 import AddBlog from './components/Pages/Blogs/AddBlog/AddBlog';
 import BlogDetail from './components/Pages/Blogs/BlogDetail/BlogDetail';
 import Blogs from './components/Pages/Blogs/Blogs';
+import Brands from './components/Pages/Brands/Brands';
 import Home from './components/Pages/Home/Home';
 import AddItem from './components/Pages/Inventory/AddItem/AddItem';
 import Inventory from './components/Pages/Inventory/Inventory';
@@ -25,6 +26,7 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/blog/:id' element={<BlogDetail></BlogDetail>}></Route>
+        <Route path='/brands' element={<Brands></Brands>}></Route>
         
         <Route path='/add-blog' element={
           <RequireAuth>

@@ -41,6 +41,7 @@ const Header = () => {
                 <nav className={`md:ml-auto md:flex text-base justify-center items-center md:static ${toggleMenu? 'top-16 bg-gray-100 w-full mt-2' : 'hidden'}`}>
                     <MyLink to='/' className="mx-3 hover:text-gray-900 hover:text-orange-500">Home</MyLink>
                     <MyLink to='/blogs' className="mx-3 hover:text-gray-900 hover:text-orange-500">Blogs</MyLink>
+                    <MyLink to='/brands' className="mx-3 hover:text-gray-900 hover:text-orange-500">Our Brands</MyLink>
                     {user &&
                       <>
                         <MyLink to='/add-blog' className="mx-3 hover:text-gray-900 hover:text-orange-500">Add Blog</MyLink>
