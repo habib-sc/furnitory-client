@@ -7,9 +7,9 @@ const Footer = () => {
         <footer className="text-gray-600 body-font mt-20">
             <div className='bg-gray-100'>
                 <div className="container py-10 mx-auto">
-                    <div className="flex flex-wrap md:text-left text-center -mb-10 -mx-4">
+                    <div className="flex flex-wrap md:text-left text-center -mb-10">
                         {/* Column 1 */}
-                        <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+                        <div className="lg:w-1/4 md:w-1/2 w-full px-4 pb-8 md:pb-0">
                             <h1 className="mr-3 text-3xl font-bold text-orange-500 mb-3">Furnitory</h1>
                             <p>Inventory management can makes your inventory calculation easier.</p>    
                         </div>
@@ -41,19 +41,19 @@ const Footer = () => {
                         <div className="lg:w-1/4 md:w-1/2 w-full px-4">
                             <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">ADDRESS</h2>
                             <nav className="list-none mb-10">
-                                <li className='flex items-center'>
+                                <li className='flex items-center justify-center md:justify-start'>
                                     <div className='bg-orange-200 p-2 rounded-full mr-2 my-1'>
                                         <GeoAlt className='text-2xl text-orange-500'></GeoAlt>
                                     </div>
                                     <p className="text-gray-600 hover:text-gray-800">Location: #House 454, #Rd 8, #Block C, Uttara, Dhaka</p>
                                 </li>
-                                <li className='flex items-center'>
+                                <li className='flex items-center justify-center md:justify-start'>
                                     <div className='bg-orange-200 p-2 rounded-full mr-2 my-1'>
                                         <Envelope className='text-2xl text-orange-500'></Envelope>
                                     </div>
                                     <p className="text-gray-600 hover:text-gray-800">Email: habib97.cs@gmail.com</p>
                                 </li>
-                                <li className='flex items-center'>
+                                <li className='flex items-center justify-center md:justify-start'>
                                     <div className='bg-orange-200 p-2 rounded-full mr-2 my-1'>
                                         <Telephone className='text-2xl text-orange-500'></Telephone>
                                     </div>
@@ -63,7 +63,7 @@ const Footer = () => {
                         </div>
 
                         {/* Column 4  */}
-                        <div className="lg:w-1/4 md:w-1/2 w-full px-4">
+                        <div className="lg:w-1/4 md:w-1/2 w-full px-4 mb-5">
                             <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">FOLLOW US</h2>
                             <span className="inline-flex lg:ml-auto lg:mt-0 mt-6 w-full justify-center md:justify-start md:w-auto">
                                 <a href='#' className="text-gray-500 bg-orange-200 p-3 rounded-full">

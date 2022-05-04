@@ -13,7 +13,7 @@ const WhoWeAre = () => {
                         <div className="p-4 md:w-full h-[500px] relative order-2 md:order-1 mt-5 md:mt-0">
                             <div className='h-48 w-48 border-8 border-orange-500 absolute z-0'>
                             </div>
-                            <div className='h-[500px] ml-5 mr-20 border absolute top-9'>
+                            <div className='h-[500px] ml-5 md:mr-20 border absolute top-9'>
                                 <img src={whoImg} alt="" className='object-cover h-full w-full' />
                             </div>
                             <div className='bg-white text-center p-3 shadow-lg absolute bottom-0 right-6 z-2'>
