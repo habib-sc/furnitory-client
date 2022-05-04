@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -78,7 +78,7 @@ const Register = () => {
         })();
 
         navigate('/');
-        toast.success('Account Created Successfuly!')
+        toast.success('Account Created Successfuly!', {toastId: 'accountcreate'})
     }
 
     if (loading) {

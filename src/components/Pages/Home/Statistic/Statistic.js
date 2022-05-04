@@ -9,7 +9,7 @@ const Statistic = () => {
                 <h1 className="sm:text-3xl md:text-5xl font-bold title-font mb-4 text-gray-900">Our Achievements</h1>
                 <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Furnitory is considered to be the Game Changer in furniture industry. Carefully-chosen raw material, environment-friendly business practice and customer-centric approach is what made Furnitory. Now Furnitory a beloved brand at home and abroad.</p>
                 </div>
-                <div className="flex flex-wrap -m-4 text-center">
+                <div className="flex flex-wrap text-center">
                 <div className="p-4 md:w-1/4 sm:w-1/2 w-full">
                     <div className="border-2 border-gray-200 px-4 py-6 rounded-lg">
                         <People className="text-orange-500 w-12 h-12 mb-3 inline-block"></People>
