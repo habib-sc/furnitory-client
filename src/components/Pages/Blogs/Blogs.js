@@ -24,8 +24,10 @@ const Blogs = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 gap-8 my-10'>
                 {
                     blogs.map(blog => <div key={blog._id}>
-                        <article className='min-h-[230px] bg-gray-100 rounded-lg shadow-lg p-5 flex items-center'>
-                            <img src={blog.img} className='w-48 rounded-lg' alt="" />
+                        <article className='min-h-[230px] bg-gray-100 rounded-lg shadow-lg p-5 mx-5 md:mx-0 flex flex-col md:flex-row items-center'>
+                            <div className='w-64 border border-2 p-3 rounded-lg mb-2 md:mb-0'>
+                                <img src={blog.img} className='w-full rounded-lg' alt="" />
+                            </div>
                             <div className='px-5'>
                                 <h3 className='text-2xl text-slate-600 font-medium'>{blog.title}</h3>
                                 <p className='text-slate-600'>{blog.description.slice(0, 120)} ...</p>
