@@ -25,8 +25,8 @@ const Blogs = () => {
                 {
                     blogs.map(blog => <div key={blog._id}>
                         <article className='min-h-[230px] bg-gray-100 rounded-lg shadow-lg p-5 mx-5 md:mx-0 flex flex-col md:flex-row items-center'>
-                            <div className='w-64 border border-2 p-3 rounded-lg mb-2 md:mb-0'>
-                                <img src={blog.img} className='w-full rounded-lg' alt="" />
+                            <div className='h-40 w-64 md:w-80 border border-2 p-3 border rounded-lg mb-2 md:mb-0'>
+                                <img src={blog.img} className='object-cover h-full w-full rounded-lg' alt="" />
                             </div>
                             <div className='px-5'>
                                 <h3 className='text-2xl text-slate-600 font-medium'>{blog.title}</h3>
