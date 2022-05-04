@@ -30,12 +30,12 @@ To See live site [click here](https://furnitory-cc593.web.app/).
   * React Router
 
 ### Firebase Requirements for .env.local
-REACT_APP_apiKey=
-REACT_APP_authDomain=
-REACT_APP_projectId=
-REACT_APP_storageBucket=
-REACT_APP_messagingSenderId=
-REACT_APP_appId=
+   * REACT_APP_apiKey=
+   * REACT_APP_authDomain=
+   * REACT_APP_projectId=
+   * REACT_APP_storageBucket=
+   * REACT_APP_messagingSenderId=
+   * REACT_APP_appId=
 
 # Getting Started with Create React App
 
