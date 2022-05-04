@@ -9,7 +9,7 @@ const useItemsByEmail = (email, page, limit) => {
     const [totalPage, setTotalPage] = useState(0);
     const navigate = useNavigate();
 
-    const url = `http://localhost:5000/users-items?email=${email}&limit=${limit}&page=${page}`;
+    const url = `https://furnitory-app.herokuapp.com/users-items?email=${email}&limit=${limit}&page=${page}`;
     useEffect( () => {
         ( async () => {
             try{
