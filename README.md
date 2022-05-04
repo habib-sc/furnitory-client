@@ -6,7 +6,7 @@
 This is a furniture inventory website named furnitory. User agent can create, update, delete, Read their product or item and can changes status for products or items.
 
 ### Live Link
-To See live site [clikck here](https://furnitory-cc593.web.app/).
+To See live site [click here](https://furnitory-cc593.web.app/).
 
 ### Some Features
   * Google Login/Registration
