@@ -1,3 +1,42 @@
+# Project Info
+
+### Project Name: Furnitory
+
+### Short Description
+This is a furniture inventory website named furnitory. User agent can create, update, delete, Read their product or item and can changes status for products or items.
+
+### Live Link
+To See live site [clikck here](https://furnitory-cc593.web.app/).
+
+### Some Features
+  * Google Login/Registration
+  * Smart Error Validation
+  * Email and Password Regsitration
+  * Responsive Design
+  * Products or item create, read, update, delete feature
+  * Simple Blogs
+  * Loading Spinner
+
+### Technology Used
+  * HTML
+  * CSS
+  * Javascript
+  * Tailwind CSS
+  * React Js
+  * React Bootstrap Icon
+  * Axios
+  * Firebase
+  * React Toastify
+  * React Router
+
+### Firebase Requirements for .env.local
+REACT_APP_apiKey=
+REACT_APP_authDomain=
+REACT_APP_projectId=
+REACT_APP_storageBucket=
+REACT_APP_messagingSenderId=
+REACT_APP_appId=
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
