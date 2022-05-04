@@ -5,10 +5,10 @@ import whoImg from '../../../../assets/images/wm-who.jpg';
 const WhoWeAre = () => {
     return (
         <section className="text-gray-600 body-font">
-            <div className="container px-5 py-24 mx-auto">
+            <div className="container px-5 md:px-0 py-24 mx-auto">
                 
-                <div className="flex flex-wrap -m-4 px-4 md:px-0">
-                    <div className="grid grid-cols-1 md:grid-cols-2 -m-4">
+                <div className="flex flex-wrap px-4 md:px-0">
+                    <div className="grid grid-cols-1 md:grid-cols-2">
                         {/* Left side  */}
                         <div className="p-4 md:w-full h-[500px] relative order-2 md:order-1 mt-5 md:mt-0">
                             <div className='h-48 w-48 border-8 border-orange-500 absolute z-0'>

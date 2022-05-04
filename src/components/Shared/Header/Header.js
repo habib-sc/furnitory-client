@@ -27,37 +27,37 @@ const Header = () => {
       }
 
     return (
-        <header className="text-gray-600 body-font bg-gray-100">
+        <header className="text-gray-600 body-font bg-gray-100 sticky top-0 w-full z-10 shadow-lg">
             <div className="container mx-auto flex flex-wrap py-5 px-4 md:px-0 flex-col md:flex-row">
                 <div className='flex justify-between items-center'>
                     <button onClick={ () => {setToggleMenu(!toggleMenu)}} className='md:hidden'>
                         <List className='text-3xl text-orange-100 bg-orange-500 rounded'></List>
                     </button>
                     <Link to='/' className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-                        <span className="ml-3 text-3xl font-bold text-orange-500">Furnitory</span>
+                        <span className="mr-3 text-3xl font-bold text-orange-500">Furnitory</span>
                     </Link>
                 </div>
                 
                 <nav className={`md:ml-auto md:flex text-base justify-center items-center md:static ${toggleMenu? 'top-16 bg-gray-100 w-full mt-2' : 'hidden'}`}>
-                    <MyLink to='/' className="mx-3 hover:text-gray-900">Home</MyLink>
-                    <MyLink to='/blogs' className="mx-3 hover:text-gray-900">Blogs</MyLink>
+                    <MyLink to='/' className="mx-3 hover:text-gray-900 hover:text-orange-500">Home</MyLink>
+                    <MyLink to='/blogs' className="mx-3 hover:text-gray-900 hover:text-orange-500">Blogs</MyLink>
                     {user &&
                       <>
-                        <MyLink to='/add-blog' className="mx-3 hover:text-gray-900">Add Blog</MyLink>
-                        <MyLink to='/inventory' className="mx-3 hover:text-gray-900">Manage Items</MyLink>
-                        <MyLink to='/inventory/add' className="mx-3 hover:text-gray-900">Add Items</MyLink>
-                        <MyLink to='/my-items' className="mx-3 hover:text-gray-900">My Items</MyLink>
+                        <MyLink to='/add-blog' className="mx-3 hover:text-gray-900 hover:text-orange-500">Add Blog</MyLink>
+                        <MyLink to='/inventory' className="mx-3 hover:text-gray-900 hover:text-orange-500">Manage Items</MyLink>
+                        <MyLink to='/inventory/add' className="mx-3 hover:text-gray-900 hover:text-orange-500">Add Items</MyLink>
+                        <MyLink to='/my-items' className="mx-3 hover:text-gray-900 hover:text-orange-500">My Items</MyLink>
                       </>
                     }
 
                     {user ?
-                    <button onClick={ () => signOut(auth) } className="inline-flex items-center bg-orange-500 border-0 py-1 px-3 focus:outline-none hover:bg-orange-400 rounded text-white mt-4 md:mt-0 mx-3">Logout
+                    <button onClick={ () => signOut(auth) } className="inline-flex items-center bg-orange-500 border-0 pt-[2px] pb-[5px] px-3 focus:outline-none hover:bg-orange-400 rounded text-white mt-4 md:mt-0 mx-3">Logout
                     </button>
                     : 
                     <>
-                      <button onClick={ () => navigate('/login') } className="inline-flex items-center bg-indigo-500 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-400 rounded text-white mt-4 md:mt-0 mx-3">Login
+                      <button onClick={ () => navigate('/login') } className="inline-flex items-center bg-indigo-500 border-0 pt-[2px] pb-[5px] px-3 focus:outline-none hover:bg-indigo-400 rounded text-white mt-4 md:mt-0 mx-3">Login
                       </button>
-                      <button onClick={ () => navigate('/register') } className="inline-flex items-center bg-orange-500 border-0 py-1 px-3 focus:outline-none hover:bg-orange-400 rounded text-white mt-4 md:mt-0">Register
+                      <button onClick={ () => navigate('/register') } className="inline-flex items-center bg-orange-500 border-0 pt-[2px] pb-[5px] px-3 focus:outline-none hover:bg-orange-400 rounded text-white mt-4 md:mt-0">Register
                       </button>
                     </>
 
