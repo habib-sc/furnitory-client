@@ -4,16 +4,18 @@ import { useNavigate } from 'react-router-dom';
 import auth from '../firebase.init';
 import myAxios from '../myAxios/myAxios';
 
-const useItemsByEmail = (email) => {
+const useItemsByEmail = (email, page, limit) => {
     const [itemsByEmail, setItemsByEmail] = useState([]);
+    const [totalPage, setTotalPage] = useState(0);
     const navigate = useNavigate();
 
-    const url = `https://furnitory-app.herokuapp.com/users-items?email=${email}`;
+    const url = `http://localhost:5000/users-items?email=${email}&limit=${limit}&page=${page}`;
     useEffect( () => {
         ( async () => {
             try{
                 const { data } = await myAxios.get(url);
-                setItemsByEmail(data);
+                setItemsByEmail(data.result);
+                setTotalPage(Math.ceil(data.itemCount/parseInt(limit)));
             }
             catch(error){
                 const status = error.response.status;
@@ -23,9 +25,9 @@ const useItemsByEmail = (email) => {
                 }
             }
         })();
-    } , [url]);
+    } , [url, page, limit]);
 
-    return [itemsByEmail, setItemsByEmail];
+    return [itemsByEmail, totalPage, setItemsByEmail];
 };
 
 export default useItemsByEmail;

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { PlusLg, Search } from 'react-bootstrap-icons';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
@@ -12,8 +12,15 @@ import InventoryItem from '../InventoryItem/InventoryItem';
 const MyItems = () => {
     const [user, loading, error] = useAuthState(auth);
     const navigate = useNavigate();
+    const [page, setPage] = useState(0);
+    const [limit, setLimit] = useState(5);
 
-    const [itemsByEmail, setItemsByEmail] = useItemsByEmail(user.email);
+    const [itemsByEmail, totalPage, setItemsByEmail] = useItemsByEmail(user.email, page, limit);
+    
+    // if (itemsByEmail.length > 0) {
+    //     setTotalPage(Math.ceil(itemsByEmail.length/limit));
+    // }
+    
 
     const handleMyItemDelete = id => {
         const url = `https://furnitory-app.herokuapp.com/item/delete/${id}`
@@ -84,6 +91,18 @@ const MyItems = () => {
                         }
                     </tbody>
                 </table>
+            </div>
+            <div className='flex my-5 justify-center'>
+                <select onChange={ (e) => setLimit(e.target.value)} defaultValue={limit} className='mx-4 border border-orange-500 px-3 py-1'>
+                    <option value="2">2</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                </select>
+
+                {
+                    [...Array(totalPage? totalPage : 0).keys()].map(pageNumber => <div onClick={ () => setPage(pageNumber)} key={pageNumber} className='mx-2 border border-orange-500 px-3 py-1 cursor-pointer'>{pageNumber+1}</div>)
+                }
             </div>
         </div>
     );

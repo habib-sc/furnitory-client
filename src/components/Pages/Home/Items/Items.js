@@ -6,11 +6,13 @@ import Spinner from '../../../Shared/Spinner/Spinner';
 import Item from './Item/Item';
 
 const Items = () => {
-    const [items, setItems] = useItems();
-    const limitedItems = items.splice(0, 6);
+    const page = 0;
+    const limit = 6;
+    const [items, setItems] = useItems(page, limit);
+    // const limitedItems = items.splice(0, 6);
     const navigate = useNavigate();
 
-    if (limitedItems.length === 0) {
+    if (items.length === 0) {
         return <Spinner></Spinner>
     }
 
@@ -20,7 +22,7 @@ const Items = () => {
             <div className='container mx-auto'>
                 <div className='grid grid-cols-1 gap-8 md:grid-cols-2'>
                     {
-                        limitedItems.map(item => <Item key={item._id} item={item}></Item>)
+                        items.map(item => <Item key={item._id} item={item}></Item>)
                     }
                 </div>
                 <div className='my-10'>

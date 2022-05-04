@@ -1,15 +1,26 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { PlusLg, Search } from 'react-bootstrap-icons';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import useItems from '../../../hooks/useItems';
 import Spinner from '../../Shared/Spinner/Spinner';
 import InventoryItem from './InventoryItem/InventoryItem';
 
 const Inventory = () => {
     const navigate = useNavigate();
-    const [items, setItems] = useItems();
+    const [items, setItems] = useState([]);
+    const [page, setPage] = useState(0);
+    const [limit, setLimit] = useState(5);
+    const [totalPage, setTotalPage] = useState(0)
+
+    useEffect( () => {
+        ( async () => {
+            const url = `http://localhost:5000/items?limit=${limit}&page=${page}`;
+            const { data } = await axios.get(url);
+            setItems(data.result);
+            setTotalPage(Math.ceil(data.itemCount/limit));
+        })();
+    } , [page, limit]);
 
     // Handling delete item =======================================================
     const handleItemDelete = id => {
@@ -81,6 +92,18 @@ const Inventory = () => {
                         }
                     </tbody>
                 </table>
+            </div>
+            <div className='flex my-5 justify-center'>
+                <select onChange={ (e) => setLimit(e.target.value)} defaultValue={limit} className='mx-4 border border-orange-500 px-3 py-1'>
+                    <option value="2">2</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                </select>
+
+                {
+                    [...Array(totalPage).keys()].map(pageNumber => <div onClick={ () => setPage(pageNumber)} key={pageNumber} className='mx-2 border border-orange-500 px-3 py-1 cursor-pointer'>{pageNumber+1}</div>)
+                }
             </div>
 
         </div>

@@ -1,12 +1,13 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const useItems = () => {
+const useItems = (page, limit) => {
     const [items, setItems] = useState([]);
     useEffect( () => {
         ( async () => {
-            const { data } = await axios.get('https://furnitory-app.herokuapp.com/items');
-            setItems(data);
+            const url = `http://localhost:5000/items?limit=${limit}&page=${page}`;
+            const { data } = await axios.get(url);
+            setItems(data.result);
         })();
     } , []);
 
