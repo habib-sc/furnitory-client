@@ -101,7 +101,7 @@ const MyItems = () => {
                 </select>
 
                 {
-                    [...Array(totalPage? totalPage : 0).keys()].map(pageNumber => <div onClick={ () => setPage(pageNumber)} key={pageNumber} className='mx-2 border border-orange-500 px-3 py-1 cursor-pointer'>{pageNumber+1}</div>)
+                    [...Array(totalPage? totalPage : 0).keys()].map(pageNumber => <div onClick={ () => setPage(pageNumber)} key={pageNumber} className={`mx-2 border border-orange-500 px-3 py-1 cursor-pointer ${page === pageNumber ? 'bg-orange-500 text-white' : ''}`}>{pageNumber+1}</div>)
                 }
             </div>
         </div>

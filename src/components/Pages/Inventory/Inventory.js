@@ -11,7 +11,7 @@ const Inventory = () => {
     const [items, setItems] = useState([]);
     const [page, setPage] = useState(0);
     const [limit, setLimit] = useState(5);
-    const [totalPage, setTotalPage] = useState(0)
+    const [totalPage, setTotalPage] = useState(0);
 
     useEffect( () => {
         ( async () => {
@@ -102,7 +102,7 @@ const Inventory = () => {
                 </select>
 
                 {
-                    [...Array(totalPage).keys()].map(pageNumber => <div onClick={ () => setPage(pageNumber)} key={pageNumber} className='mx-2 border border-orange-500 px-3 py-1 cursor-pointer'>{pageNumber+1}</div>)
+                    [...Array(totalPage).keys()].map(pageNumber => <div onClick={ () => setPage(pageNumber)} key={pageNumber} className={`mx-2 border border-orange-500 px-3 py-1 cursor-pointer ${page === pageNumber ? 'bg-orange-500 text-white' : ''}`}>{pageNumber+1}</div>)
                 }
             </div>
 
