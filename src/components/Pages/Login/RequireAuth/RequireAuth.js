@@ -15,19 +15,21 @@ const RequireAuth = ({ children }) => {
         );
     }
 
-    if (!user.emailVerified) {
-        return (
-            <div className='container mx-auto'>
-                <div className='h-[500px] w-full flex items-center justify-center'>
-                    <div className='h-64 w-96 flex items-center border rounded-lg shadow-lg p-5'>
-                        <div className='flex flex-col items-center'>
-                            <EnvelopeCheck className='text-4xl text-orange-800 mb-3'></EnvelopeCheck>
-                            <h3 className='text-center text-3xl text-orange-500'>Please check your email and verify.</h3>
+    if (user) {
+        if (!user.emailVerified) {
+            return (
+                <div className='container mx-auto'>
+                    <div className='h-[500px] w-full flex items-center justify-center'>
+                        <div className='h-64 w-96 flex items-center border rounded-lg shadow-lg p-5'>
+                            <div className='flex flex-col items-center'>
+                                <EnvelopeCheck className='text-4xl text-orange-800 mb-3'></EnvelopeCheck>
+                                <h3 className='text-center text-3xl text-orange-500'>Please check your email and verify.</h3>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        );
+            );
+        }
     }
     
     if (!user) {

@@ -20,8 +20,10 @@ const Item = (props) => {
                         <h3 className="text-slate-700 font-semibold">Quantity: {qty} Pcs</h3>
                     </div>
                     <h3 className="text-slate-700 border-b py-1">Supplier Name: {supplierName}</h3>
-                    <p className="mb-4 border-b py-1">{text}</p>
-                    <button onClick={ () => navigate(`/inventory/${_id}`)} className='bg-orange-500 px-2 py-1 rounded text-white'>Manage</button>
+                    {text &&
+                        <p className="border-b py-1">{text}</p>
+                    }
+                    <button onClick={ () => navigate(`/inventory/${_id}`)} className='bg-orange-500 hover:bg-orange-400 px-2 pt-[2px] pb-[4px] mt-4 rounded text-white'>Update</button>
                 </div>
             </div>
         </div>
