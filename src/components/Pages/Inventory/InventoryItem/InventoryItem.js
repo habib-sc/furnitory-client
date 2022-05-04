@@ -36,8 +36,13 @@ const InventoryItem = (props) => {
                 <td className="px-6 py-4 font-medium">
                     {addedBy}
                 </td>
-                <td className="px-6 py-4 text-right">
-                    <button onClick={openModal} className='border p-2 rounded-full hover:bg-orange-50'>
+                <td className="px-6 py-4 text-right flex items-center justify-end gap-4">
+                    <Link to={`/inventory/${_id}`}>
+                        <button className='border p-2 rounded-full bg-orange-100 text-orange-500 hover:bg-orange-200'>
+                            Update Status
+                        </button>
+                    </Link>
+                    <button onClick={openModal} className='border p-2 rounded-full bg-red-100 hover:bg-red-200'>
                         <Trash className='text-3xl text-red-500'></Trash>
                     </button>
                 </td>
