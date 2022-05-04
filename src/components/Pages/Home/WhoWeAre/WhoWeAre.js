@@ -10,7 +10,7 @@ const WhoWeAre = () => {
                 <div className="flex flex-wrap px-4 md:px-0">
                     <div className="grid grid-cols-1 md:grid-cols-2">
                         {/* Left side  */}
-                        <div className="p-4 md:w-full h-[500px] relative order-2 md:order-1 mt-5 md:mt-0">
+                        <div className="pr-4 md:w-full h-[500px] relative order-2 md:order-1 mt-5 md:mt-0">
                             <div className='h-48 w-48 border-8 border-orange-500 absolute z-0'>
                             </div>
                             <div className='h-[500px] ml-5 md:mr-20 border absolute top-9'>
@@ -23,7 +23,7 @@ const WhoWeAre = () => {
                         </div>
 
                         {/* Right side  */}
-                        <div className="p-4 md:w-full order-1 md:order-2">
+                        <div className="pl-4 md:w-full order-1 md:order-2">
                             <div className="flex flex-col w-full mb-8">
                                 <h1 className="sm:text-3xl md:text-5xl font-bold title-font mb-4 text-gray-900 mt-3">Who We Are</h1>
                                 <p className="lg:w-3/4 leading-relaxed text-base">We are working for your loveable furnitures. Which are suits your personality. You find best and qualityful furniture from us.</p>

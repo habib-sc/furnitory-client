@@ -4,7 +4,7 @@ import { ArrowBarUp, BoxSeam, CheckCircle, People } from 'react-bootstrap-icons'
 const Statistic = () => {
     return (
         <section className="text-gray-600 body-font">
-            <div className="container px-5 py-24 mx-auto">
+            <div className="container py-24 mx-auto">
                 <div className="flex flex-col text-center w-full mb-20">
                 <h1 className="sm:text-3xl md:text-5xl font-bold title-font mb-4 text-gray-900">Our Achievements</h1>
                 <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Furnitory is considered to be the Game Changer in furniture industry. Carefully-chosen raw material, environment-friendly business practice and customer-centric approach is what made Furnitory. Now Furnitory a beloved brand at home and abroad.</p>

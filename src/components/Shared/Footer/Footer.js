@@ -9,7 +9,7 @@ const Footer = () => {
                 <div className="container py-10 mx-auto">
                     <div className="flex flex-wrap md:text-left text-center -mb-10">
                         {/* Column 1 */}
-                        <div className="lg:w-1/4 md:w-1/2 w-full px-4 pb-8 md:pb-0">
+                        <div className="lg:w-1/4 md:w-1/2 w-full pr-4 pb-8 md:pb-0">
                             <h1 className="mr-3 text-3xl font-bold text-orange-500 mb-3">Furnitory</h1>
                             <p>Inventory management can makes your inventory calculation easier.</p>    
                         </div>
@@ -63,7 +63,7 @@ const Footer = () => {
                         </div>
 
                         {/* Column 4  */}
-                        <div className="lg:w-1/4 md:w-1/2 w-full px-4 mb-5">
+                        <div className="lg:w-1/4 md:w-1/2 w-full pl-4 mb-5">
                             <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">FOLLOW US</h2>
                             <span className="inline-flex lg:ml-auto lg:mt-0 mt-6 w-full justify-center md:justify-start md:w-auto">
                                 <a href='#' className="text-gray-500 bg-orange-200 p-3 rounded-full">
@@ -93,7 +93,7 @@ const Footer = () => {
             </div>
 
             <div className="bg-gray-100 border border-t-2">
-                <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+                <div className="container mx-auto py-4 flex flex-wrap flex-col sm:flex-row">
                 <p className="text-gray-500 text-sm text-center sm:text-left">© 2022 Furnitory —
                     <a href="#" className="text-gray-600 ml-1" target="_blank">@Habib</a>
                 </p>
