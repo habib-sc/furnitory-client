@@ -35,21 +35,21 @@ const WhoWeAre = () => {
                                         <h3 className='text-3xl font-semibold title-font text-slate-800 my-3'>Trusted Furniture Items</h3>
                                     </div>
                                     
-                                    <p className='md:w-[500px] leading-relaxed text-base'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis aspernatur sequi asperiores!</p>
+                                    <p className='md:w-[500px] leading-relaxed text-base'>Our every furniture items are very qualitiful. We give guarantee for every furniture</p>
                                 </div>
                                 <div>
                                     <div className='flex items-center'>
                                         <PeopleFill className='mr-2 text-4xl text-orange-500'></PeopleFill>
                                         <h3 className='text-3xl font-semibold title-font text-slate-800 my-3'>Professional Service </h3>
                                     </div>
-                                    <p className='md:w-[500px] leading-relaxed text-base'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, incidunt quisquam.</p>
+                                    <p className='md:w-[500px] leading-relaxed text-base'>Our every service holders are very professional. They are allways ready to help you.</p>
                                 </div>
                                 <div>
                                     <div className='flex items-center'>
                                         <ShieldFillCheck className='mr-2 text-4xl text-orange-500'></ShieldFillCheck>
                                         <h3 className='text-3xl font-semibold title-font text-slate-800 my-3'>100% Safe Transaction</h3>
                                     </div>
-                                    <p className='md:w-[500px] leading-relaxed text-base'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta hic non dolores minima optio.</p>
+                                    <p className='md:w-[500px] leading-relaxed text-base'>You don't have to worry about safe transaction. We accept almost all payment method.</p>
                                 </div>
                             </div>
                         </div>
