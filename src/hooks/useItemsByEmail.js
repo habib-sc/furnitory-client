@@ -19,7 +19,7 @@ const useItemsByEmail = (email, page, limit) => {
             }
             catch(error){
                 const status = error.response.status;
-                if(status === 401 || 403) {
+                if(status === 401 || status === 403) {
                     signOut(auth);
                     navigate('/login');
                 }
