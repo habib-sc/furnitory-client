@@ -31,6 +31,11 @@ const MyItems = () => {
         const newItems = itemsByEmail.filter(item => item._id !== id);
         setItemsByEmail(newItems);
     };
+    
+    if (!itemsByEmail) {
+        navigate('/');
+        return;
+    }
 
     if (itemsByEmail.length === 0) {
         return (
