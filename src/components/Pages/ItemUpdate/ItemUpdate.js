@@ -15,6 +15,12 @@ const ItemUpdate = () => {
         e.preventDefault();
         // Getting input 
         const addStock = e.target.addStock.value;
+
+        if (addStock < 0 || addStock === '') {
+            toast.error('Invalid Input!', {toastId: 'invalidinput'});
+            return;
+        };
+
         // calculating new stock 
         const newStock = qty + parseInt(addStock);
         // wrapping data with object 
@@ -51,6 +57,11 @@ const ItemUpdate = () => {
         // calculating data
         newStock = newStock - 1;
         newSold = newSold + 1;
+
+        if (qty <= 0) {
+            toast.error('Stock Empty! Please Add Stock.', {toastId: 'invalidinput'});
+            return;
+        };
 
          // wrapping data with object 
          const updateData = {name, text, img, price, qty: newStock, sold: newSold, supplierName};
