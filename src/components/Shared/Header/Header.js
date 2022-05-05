@@ -54,7 +54,7 @@ const Header = () => {
                     {user ?
                     <>
                       <h3 className='mx-3 hover:text-gray-900 hover:text-orange-500 bg-orange-100 text-orange-600 px-2 pb-[3px] border border-orange-200 rounded-lg'>{user.displayName ? user.displayName : user.email}</h3>
-                      <button onClick={ () => signOut(auth) } className="inline-flex items-center bg-orange-500 border-0 pt-[2px] pb-[5px] px-3 focus:outline-none hover:bg-orange-400 rounded text-white mt-4 md:mt-0 mx-3">Logout
+                      <button onClick={ () => signOut(auth) } className="inline-flex items-center bg-orange-500 border-0 pt-[2px] pb-[5px] px-3 focus:outline-none hover:bg-orange-400 rounded text-white mt-4 md:mt-0">Logout
                       </button>
                     </>
                     : 
