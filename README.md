@@ -15,6 +15,9 @@ To See live site [click here](https://furnitory-cc593.web.app/).
   * Responsive Design
   * Products or item create, read, update, delete feature
   * Simple Blogs
+  * Email Verificaiton
+  * Password Reset
+  * Pagination
   * Loading Spinner
 
 ### Technology Used
